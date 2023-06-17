@@ -35,3 +35,15 @@ to get the department names for all employees.*/
 select e.first_name, e.last_name, d.department_name
 from employees e
 join departments d on e.department_id=d.department_id;
+
+
+--set2
+
+//*1. Add a column 'Salary' of number type to the 'Employee_Details' table.*/
+
+alter table Employee_Details add Salary number;
+
+/*Update the 'Employees' table to set the
+'commission_pct' to 0.2 for all employees with the 'job_id' of 'SA_REP'.*/
+
+update  employees set job_id='SA_REP' where commission_pct=0.2;
