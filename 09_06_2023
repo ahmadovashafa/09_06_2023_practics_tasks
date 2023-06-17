@@ -1,0 +1,37 @@
+--TASK09.06
+
+--set1
+
+/*1.Create a table named 'Employee_Details' with columns 'ID' (number type), 
+'Name' (varchar type), 'DOB' (date type), and 'Department_ID' (number type).*/
+
+create table Employee_Details(
+id number,
+name varchar2(30),
+DOB date,
+Department_id number);
+
+/*2. Insert a row into the 'Employees' table where first_name is 'John',
+last_name is 'Doe', email is 'jdoe@mail.com', and hire_date is '15-JAN-2022'.*/
+
+--not enough values
+insert into employees values 
+        ( 'John' , 'Doe', 'jdoe@mail.com' ,  to_date('15-Jan-2022', 'dd-MM-yyyy'));
+     
+
+  /*3.Write a SELECT statement to get the details of all the employees
+  who were hired after '01-JAN-2020'.*/  
+  
+  select* from employees where to_char(hire_date,'mm-dd-yyyy') > 'Jan-01-2020';
+
+/*4.Write a query using the INITCAP function to return all job titles
+from the 'Jobs' table with the first letter capitalized.*/
+
+select initcap(job_title) as capitalizaed_job_title from jobs;
+
+/*5. Write a query to join the 'Employees' and 'Departments' tables
+to get the department names for all employees.*/
+
+select e.first_name, e.last_name, d.department_name
+from employees e
+join departments d on e.department_id=d.department_id;
