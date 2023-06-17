@@ -43,7 +43,27 @@ join departments d on e.department_id=d.department_id;
 
 alter table Employee_Details add Salary number;
 
-/*Update the 'Employees' table to set the
+/*2.Update the 'Employees' table to set the
 'commission_pct' to 0.2 for all employees with the 'job_id' of 'SA_REP'.*/
 
 update  employees set job_id='SA_REP' where commission_pct=0.2;
+
+/*3.Write a query to find the average salary in the 'Employees' table.*/
+
+select round(avg(salary)) as avg_salary from employees;
+
+/*4.Write a query to return the hire date and number of years since
+hire for each employee in the 'Employees' table. Use the SYSDATE and EXTRACT functions.*/
+
+select employee_id,first_name,last_name,extract(year from sysdate)-extract(year from hire_date) as work_experience
+from employees;
+
+/*5.Left Join: Write a query to get all employees and their department names,
+including those not assigned to a department.*/
+
+select e.employee_id, d.department_name
+from employees e 
+left join departments d on e. department_id=d.department_id;
+
+
+
