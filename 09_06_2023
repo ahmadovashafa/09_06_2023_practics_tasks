@@ -117,3 +117,31 @@ regardless of whether the employee is assigned to a department or not.*/
 select e.employee_id ,d.department_name 
 from employees e 
 full outer join departments d on e.department_id=d.department_id;
+
+--set 5
+
+/*1.Drop a table: Drop the 'Project_Details' table.*/
+
+drop table Project_Details;
+
+/*2. Insert into 'Employee_Details' table all the employees from 'Employees' 
+table where the hire date is after '01-JAN-2021'.*/
+
+--
+
+/*3.Write a SELECT statement to get the job_id and the number of employees working in each job_id from the 'Employees' table.*/
+
+select job_id, count(*) as emp_count
+from employees 
+group by job_id;
+
+/*4.Analytical Function: Write a query using the RANK function to return 
+the salaries and rank of each employee based on their salary within their department.*/
+
+--hele kecirilmeyib.
+
+/*5.Write a query using UNION to return the job_ids from both the 'Jobs' and 'Job_History' tables.*/
+
+select job_id from jobs
+union
+select job_id from job_history;
